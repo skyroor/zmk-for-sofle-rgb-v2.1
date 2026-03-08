@@ -12,16 +12,11 @@
 #     shield: reviung41
 #
 ---
-# Minimal build.yaml for zmk-for-sofle-rgb-v2.1
 include:
   - board: nice_nano_v2
-    shield: sofle
+    shield: sofle_left
     snippet: studio-rpc-usb-uart
-    artifact-name: sofle_left
-
   - board: nice_nano_v2
-    shield: sofle
-    artifact-name: sofle_right
-
+    shield: sofle_right
   - board: nice_nano_v2
     shield: settings_reset
