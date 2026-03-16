@@ -45,8 +45,8 @@
 
 		x-ch {
 			io-channels = <&adc 5>;
-			mv-mid = <1650>;
-			mv-min-max = <1500>;
+			mv-mid = <1560>;
+			mv-min-max = <1020>;
 			mv-deadzone = <80>;
 			scale-multiplier = <1>;
 			scale-divisor = <50>;
@@ -56,8 +56,8 @@
 
 		y-ch {
 			io-channels = <&adc 7>;
-			mv-mid = <1650>;
-			mv-min-max = <1500>;
+			mv-mid = <1450>;
+			mv-min-max = <1000>;
 			mv-deadzone = <80>;
 			scale-multiplier = <1>;
 			scale-divisor = <50>;
