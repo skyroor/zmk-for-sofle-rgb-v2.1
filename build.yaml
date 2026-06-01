@@ -15,13 +15,9 @@
 include:
   - board: nice_nano//zmk
     shield: sofle_left
+    snippet: studio-rpc-usb-uart
     artifact-name: sofle_left
 
   - board: nice_nano//zmk
     shield: sofle_right
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
     artifact-name: sofle_right
-
-  - board: nice_nano//zmk
-    shield: settings_reset
