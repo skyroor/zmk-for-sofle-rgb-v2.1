@@ -16,16 +16,15 @@
 #define ADJUST 3
 
 // Thumb hold-taps. Keep this value easy to tune after real-world use.
+
 &mt {
     tapping-term-ms = <200>;
+    flavor = "balanced";
 };
 
-&lt {
-    tapping-term-ms = <200>;
-};
+&lt { tapping-term-ms = <200>; };
 
 / {
-
     // Activate ADJUST layer by pressing raise and lower
 
     conditional_layers {
@@ -49,11 +48,11 @@
             //               | GUI | ALT  | CTRL | NAV/ESC | SPC/CTRL |  | ENTER | SYM/BSPC | CTRL | ALT | GUI |
 
             bindings = <
-&kp GRAVE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &none
-&kp ESC    &kp Q   &kp W     &kp E     &kp R      &kp T                                     &kp Y      &kp U      &kp I      &kp O     &kp P     &kp BSPC
-&kp TAB    &kp A   &kp S     &kp D     &kp F      &kp G                                     &kp H      &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B      &kp C_MUTE    &rgb_ug RGB_TOG  &kp N      &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &kp LGUI  &kp LALT  &kp LCTRL  &lt RAISE ESC  &mt LCTRL SPACE       &kp RET  &lt LOWER BSPC  &kp RCTRL  &kp RALT  &kp RGUI
+&kp GRAVE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                             &kp N6          &kp N7     &kp N8     &kp N9    &kp N0    &kp PAUSE_BREAK
+&kp ESC    &kp Q   &kp W     &kp E     &kp R      &kp T                                              &kp Y           &kp U      &kp I      &kp O     &kp P     &kp BSPC
+&kp TAB    &kp A   &kp S     &kp D     &kp F      &kp G                                              &kp H           &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B          &kp C_MUTE         &rgb_ug RGB_TOG  &kp N           &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                   &kp LGUI  &kp LALT  &kp LCTRL  &lt RAISE ESC  &mt LCTRL SPACE    &kp RET          &lt LOWER BSPC  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN &inc_dec_kp PG_UP PG_DN>;
@@ -69,11 +68,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans             &kp F1     &kp F2     &kp F3    &kp F4    &kp F5                       &kp F6     &kp F7    &kp F8     &kp F9     &kp F10   &kp F11
-&kp GRAVE          &kp GRAVE  &kp BSLH   &kp PIPE  &kp LBKT  &kp RBKT                     &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR   &kp RPAR  &kp F12
-&ext_power EP_TOG  &kp UNDER  &kp MINUS  &kp EQUAL &kp LPAR  &kp RPAR                     &kp EXCL   &kp AT    &kp HASH   &kp DLLR   &kp PRCNT &kp PIPE
-&trans             &kp LT     &kp GT     &kp PLUS  &kp LBRC  &kp RBRC   &trans    &trans  &kp LBKT   &kp RBKT  &kp SEMI   &kp COLON  &kp BSLH  &trans
-                              &trans     &trans    &trans    &trans     &trans    &trans  &trans     &trans    &trans     &trans
+&trans             &kp F1     &kp F2     &kp F3     &kp F4    &kp F5                      &kp F6     &kp F7    &kp F8     &kp F9     &kp F10    &kp F11
+&kp GRAVE          &kp GRAVE  &kp BSLH   &kp PIPE   &kp LBKT  &kp RBKT                    &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR   &kp RPAR   &kp F12
+&ext_power EP_TOG  &kp UNDER  &kp MINUS  &kp EQUAL  &kp LPAR  &kp RPAR                    &kp EXCL   &kp AT    &kp HASH   &kp DLLR   &kp PRCNT  &kp PIPE
+&trans             &kp LT     &kp GT     &kp PLUS   &kp LBRC  &kp RBRC  &trans    &trans  &kp LBKT   &kp RBKT  &kp SEMI   &kp COLON  &kp BSLH   &trans
+                              &trans     &trans     &trans    &trans    &trans    &trans  &trans     &trans    &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -89,11 +88,11 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans    &trans    &trans     &trans   &trans
-&trans      &kp INS       &kp LC(LEFT)  &kp LC(RIGHT) &kp HOME      &kp END                           &kp PG_UP  &kp PG_DN &trans      &kp HOME       &kp END        &trans
-&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                          &kp LEFT   &kp DOWN  &kp UP      &kp RIGHT      &kp DEL        &kp BSPC
-&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &kp LC(LEFT)  &trans    &trans    &kp LC(RIGHT) &trans &kp LC(PG_UP) &kp LC(PG_DN) &kp DEL &trans
-                          &trans        &trans        &trans        &trans        &trans    &trans  &trans     &trans    &trans    &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2   &bt BT_SEL 3  &bt BT_SEL 4                    &trans         &trans     &trans         &trans         &trans   &trans
+&trans      &kp INS       &kp LC(LEFT)  &kp LC(RIGHT)  &kp HOME      &kp END                         &kp PG_UP      &kp PG_DN  &trans         &kp HOME       &kp END  &trans
+&trans      &kp LALT      &kp LCTRL     &kp LSHFT      &trans        &kp CLCK                        &kp LEFT       &kp DOWN   &kp UP         &kp RIGHT      &kp DEL  &kp BSPC
+&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY     &kp K_PASTE   &kp LC(LEFT)  &trans    &trans  &kp LC(RIGHT)  &trans     &kp LC(PG_UP)  &kp LC(PG_DN)  &kp DEL  &trans
+                          &trans        &trans         &trans        &trans        &trans    &trans  &trans         &trans     &trans         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
