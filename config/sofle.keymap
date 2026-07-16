@@ -20,6 +20,8 @@
 &mt {
     tapping-term-ms = <200>;
     flavor = "balanced";
+    quick-tap-ms = <150>;
+    require-prior-idle-ms = <150>;
 };
 
 &lt { tapping-term-ms = <200>; };
@@ -31,8 +33,8 @@
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 
@@ -48,11 +50,11 @@
             //               | GUI | ALT  | CTRL | NAV/ESC | SPC/CTRL |  | ENTER | SYM/BSPC | CTRL | ALT | GUI |
 
             bindings = <
-&kp GRAVE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                             &kp N6          &kp N7     &kp N8     &kp N9    &kp N0    &kp PAUSE_BREAK
-&kp ESC    &kp Q   &kp W     &kp E     &kp R      &kp T                                              &kp Y           &kp U      &kp I      &kp O     &kp P     &kp BSPC
-&kp TAB    &kp A   &kp S     &kp D     &kp F      &kp G                                              &kp H           &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B          &kp C_MUTE         &rgb_ug RGB_TOG  &kp N           &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &kp LGUI  &kp LALT  &kp LCTRL  &lt RAISE ESC  &mt LCTRL SPACE    &kp RET          &lt LOWER BSPC  &kp RCTRL  &kp RALT   &kp RGUI
+&kp GRAVE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                         &kp N6      &kp N7     &kp N8     &kp N9    &kp N0    &kp PAUSE_BREAK
+&kp ESC    &kp Q   &kp W     &kp E     &kp R      &kp T                                          &kp Y       &kp U      &kp I      &kp O     &kp P     &kp BSPC
+&kp TAB    &kp A   &kp S     &kp D     &kp F      &kp G                                          &kp H       &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B      &kp C_MUTE         &rgb_ug RGB_TOG  &kp N       &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                   &kp LGUI  &kp LALT  &kp LCTRL  &lt 2 ESC  &mt LCTRL SPACE    &kp RET          &lt 1 BSPC  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN &inc_dec_kp PG_UP PG_DN>;
@@ -108,22 +110,39 @@
             //                    |         |         |         |         |         | |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                     &none  &none  &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                  &none  &none  &none  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                            &none  &none  &none  &none  &none  &none
-&none              &none            &none            &none            &none            &none            &none    &none  &none  &none  &none  &none  &none  &none
-                                    &none            &none            &none            &none            &none    &none  &none  &none  &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                     &tog 4  &none  &none  &none  &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                  &none   &none  &none  &none  &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                            &none   &none  &none  &none  &none  &none
+&none              &none            &none            &none            &none            &none            &none    &none  &none   &none  &none  &none  &none  &none
+                                    &none            &none            &none            &none            &none    &none  &none   &none  &none  &none
             >;
 
             display-name = "adjust";
         };
 
-        extra1 { status = "reserved"; };
+        game_layer {
+            display-name = "game mode";
+            bindings = <
+&kp GRAVE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                         &kp N6      &kp N7     &kp N8     &kp N9    &kp N0    &kp PAUSE_BREAK
+&kp ESC    &kp Q   &kp W     &kp E     &kp R      &kp T                                          &kp Y       &kp U      &kp I      &kp O     &kp P     &kp BSPC
+&kp TAB    &kp A   &kp S     &kp D     &kp F      &kp G                                          &kp H       &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B      &kp C_MUTE         &rgb_ug RGB_TOG  &kp N       &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                   &kp LGUI  &kp LALT  &kp LCTRL  &lt 5 ESC  &mt LCTRL SPACE    &kp RET          &lt 1 BSPC  &kp RCTRL  &kp RALT   &kp RGUI
+            >;
 
-        extra2 { status = "reserved"; };
+            sensor-bindings =
+                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
+                <&inc_dec_kp PG_UP PG_DN>;
+        };
 
-        extra3 { status = "reserved"; };
-
-        extra4 { status = "reserved"; };
+        game_raise_layer {
+            bindings = <
+&kp ENTER  &kp F1  &kp F2  &kp F3  &kp F5  &kp F9                    &tog 0  &trans  &trans  &trans  &trans  &trans
+&kp M      &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                    &trans  &trans  &trans  &trans  &trans  &trans
+&kp I      &kp H   &kp J   &kp K   &kp L   &kp P                     &trans  &trans  &trans  &trans  &trans  &trans
+&kp SPACE  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+            >;
+        };
     };
 };
