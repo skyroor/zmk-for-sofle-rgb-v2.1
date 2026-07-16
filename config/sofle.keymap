@@ -137,12 +137,14 @@
 
         game_raise_layer {
             bindings = <
-&kp ENTER  &kp F1  &kp F2  &kp F3  &kp F5  &kp F9                    &tog 0  &trans  &trans  &trans  &trans  &trans
+&kp ENTER  &kp F1  &kp F2  &kp F3  &kp F5  &kp F9                    &tog 4  &trans  &trans  &trans  &trans  &trans
 &kp M      &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                    &trans  &trans  &trans  &trans  &trans  &trans
 &kp I      &kp H   &kp J   &kp K   &kp L   &kp P                     &trans  &trans  &trans  &trans  &trans  &trans
 &kp SPACE  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
                    &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
+
+            label = "game mode";
         };
     };
 };
